@@ -1,1 +1,1 @@
-# domain2-eduworkhaey
+# 고주무관 전용 업무 보조 웹페이지

@@ -1053,332 +1053,369 @@ section[id]{
 }
 
 /* =========================================================
-   ✅ 레트로(90s GUI) 테마 추가 (2026.3.3)
-   ---------------------------------------------------------
-   목적: 회계업무 보조용 "계산기 상세페이지"에만 레트로 UI 적용
-   사용법: 해당 페이지의 <body>에 class="theme-retro"만 추가하면 끝.
-   예) <body class="theme-retro"> ... </body>
-
-   옵션(선택):
-   - CRT 느낌 약간: <body class="theme-retro theme-crt">
-   - CRT 강도 조절: 아래 --crt-opacity 값 수정
-
-   ※ 기존 메인(index) 등 다른 페이지는 영향 최소화(스코프: body.theme-retro)
+   🟣🟦 CYBERPUNK THEME OVERRIDES (2026.3.3)
+   - 기존 클래스/레이아웃은 그대로 유지
+   - 색/질감/포커스/호버만 사이버펑크로 변경
    ========================================================= */
 
-/* 레트로 테마 전용 변수 */
 :root{
-  --retro-bg: #c9c9c9;            /* 윈도우95-ish 배경 */
-  --retro-panel: #e7e7e7;         /* 패널/섹션 배경 */
-  --retro-panel-2: #f4f4f4;       /* 카드/인풋 배경 */
-  --retro-text: #111;
-  --retro-muted: #3f3f3f;
+  /* Base */
+  --cp-bg0:#060612;
+  --cp-bg1:#0B0B1D;
+  --cp-text:#EAF0FF;
+  --cp-text-soft: rgba(234,240,255,0.86);
+  --cp-muted: rgba(234,240,255,0.62);
 
-  --retro-accent: #0a246a;        /* 딥 네이비(타이틀바) */
-  --retro-accent-2: #008080;      /* 청록(강조) */
-  --retro-accent-3: #7f00ff;      /* 보라(포인트) */
+  /* Neon */
+  --cp-cyan:#4DFFF7;
+  --cp-pink:#FF3DF2;
+  --cp-purple:#B468FF;
+  --cp-yellow:#FFE66D;
+  --cp-orange:#FF9F68;
+  --cp-green:#42F5A1;
+  --cp-red:#FF4D6D;
 
-  --retro-border-dark: #404040;   /* 음영 */
-  --retro-border-mid:  #8a8a8a;   /* 중간톤 */
-  --retro-border-light:#ffffff;   /* 하이라이트 */
+  /* Surfaces */
+  --cp-surface: rgba(16, 18, 30, 0.78);
+  --cp-surface2: rgba(24, 27, 45, 0.86);
+  --cp-card: rgba(14, 16, 26, 0.72);
 
-  --retro-radius: 0px;            /* 레트로는 각진 맛 */
-  --retro-outline: 2px dashed #111;
+  /* Lines & shadows */
+  --cp-border: rgba(77,255,247,0.26);
+  --cp-border-strong: rgba(255,61,242,0.38);
+  --cp-shadow: rgba(0,0,0,0.55);
+  --cp-glow-cyan: 0 0 0.9rem rgba(77,255,247,0.25);
+  --cp-glow-pink: 0 0 0.9rem rgba(255,61,242,0.22);
 
-  --retro-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Tahoma, "MS Sans Serif", Roboto, "Apple SD Gothic Neo", "Noto Sans KR",
-    "맑은 고딕", sans-serif;
+  --cp-radius: 14px;
+  --cp-radius-sm: 12px;
 
-  --crt-opacity: 0.06;
+  --cp-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
 }
 
-/* -----------------------------
-   레트로 스코프 시작
-   ----------------------------- */
-body.theme-retro{
-  background: var(--retro-bg);
-  color: var(--retro-text);
-  font-family: var(--retro-font);
-}
+/* 브라우저 기본 UI도 다크 쪽으로 */
+html{ color-scheme: dark; }
 
-/* 링크는 “밑줄 + 호버 반전”이 레트로 국룰 */
-body.theme-retro a{
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-body.theme-retro a:hover{
-  background: #000;
-  color: #fff;
-  text-decoration: none;
-}
-
-/* 페이지 컨테이너: 종이(장부) 느낌 살짝 */
-body.theme-retro .container{
-  background: transparent;
-}
-
-/* 섹션/카드/콜아웃: 베벨(3D) 패널 */
-body.theme-retro .section,
-body.theme-retro .tool-card,
-body.theme-retro .card,
-body.theme-retro .callout,
-body.theme-retro .shot-details{
-  border-radius: var(--retro-radius);
-  background: var(--retro-panel);
-  border: 2px solid var(--retro-border-mid);
-  border-color:
-    var(--retro-border-light)
-    var(--retro-border-dark)
-    var(--retro-border-dark)
-    var(--retro-border-light);
-  box-shadow: none;
-}
-
-body.theme-retro .card{
-  background: var(--retro-panel-2);
-}
-
-/* 섹션 내부 hr: 점선으로 바꾸면 “구분선” 감성이 딱 */
-body.theme-retro hr{
-  border: 0;
-  border-top: 2px dotted var(--retro-border-dark);
-  opacity: 1;
-}
-
-/* 헤딩: 타이틀바 느낌 */
-body.theme-retro .section > h2:first-child,
-body.theme-retro .section > h3:first-child,
-body.theme-retro .tool-card .tool-title{
-  display: inline-block;
-  padding: 4px 10px;
-  margin-bottom: 12px;
-  background: var(--retro-accent);
-  color: #fff;
-  border: 2px solid var(--retro-border-mid);
-  border-color:
-    var(--retro-border-light)
-    var(--retro-border-dark)
-    var(--retro-border-dark)
-    var(--retro-border-light);
-  border-radius: var(--retro-radius);
-  letter-spacing: 0.2px;
-}
-
-/* 메인 H1도 살짝 레트로하게(과하지 않게) */
-body.theme-retro h1{
-  letter-spacing: 0.4px;
-}
-
-/* muted 텍스트 */
-body.theme-retro .muted{
-  color: var(--retro-muted);
-}
-
-/* -----------------------------
-   버튼: Windows 95식 베벨 버튼
-   ----------------------------- */
-body.theme-retro .btn{
-  border-radius: var(--retro-radius);
-  background: var(--retro-panel);
-  color: var(--retro-text);
-  border: 2px solid var(--retro-border-mid);
-  border-color:
-    var(--retro-border-light)
-    var(--retro-border-dark)
-    var(--retro-border-dark)
-    var(--retro-border-light);
-  box-shadow: none;
-  text-decoration: none; /* 버튼 안 텍스트 밑줄 제거 */
-}
-
-body.theme-retro .btn:hover{
-  background: #fdfdfd;
-}
-
-body.theme-retro .btn:active{
-  /* 눌림 효과: 베벨 뒤집기 */
-  border-color:
-    var(--retro-border-dark)
-    var(--retro-border-light)
-    var(--retro-border-light)
-    var(--retro-border-dark);
-  transform: translateY(1px);
-}
-
-body.theme-retro .btn:focus-visible{
-  outline: var(--retro-outline);
-  outline-offset: 3px;
-}
-
-/* primary: 타이틀바 네이비 버튼 */
-body.theme-retro .btn.primary{
-  background: var(--retro-accent);
-  color: #fff;
-}
-
-/* ghost는 그냥 “밝은 회색 패널 버튼”으로 */
-body.theme-retro .btn.ghost{
-  background: #f2f2f2;
-  border-color:
-    var(--retro-border-light)
-    var(--retro-border-dark)
-    var(--retro-border-dark)
-    var(--retro-border-light);
-}
-
-/* 파스텔 팔레트 버튼은 레트로 하이라이트 컬러로 재해석(선택) */
-body.theme-retro .btn.pastel-yellow{ background:#fff2a6; }
-body.theme-retro .btn.pastel-blue{ background:#b8dcff; }
-body.theme-retro .btn.paste-pink{ background:#ffc9de; }
-body.theme-retro .btn.pastel-mint{ background:#bff7e6; }
-body.theme-retro .btn.pastel-green{ background:#d7ffb0; }
-body.theme-retro .btn.pastel-orange{ background:#ffd3a6; }
-body.theme-retro .btn.pastel-red{ background:#ffb6b6; }
-body.theme-retro .btn.pastel-purple{ background:#dbc6ff; }
-body.theme-retro .btn.pastel-grey{ background:#eaeaea; border-color: var(--retro-border-mid); }
-body.theme-retro .btn.pastel-teal{ background:#b7f3f0; }
-
-/* -----------------------------
-   인풋/셀렉트/텍스트에어리어: 인셋(파인) 느낌
-   ----------------------------- */
-body.theme-retro input[type="text"],
-body.theme-retro input[type="number"],
-body.theme-retro input[type="time"],
-body.theme-retro input[type="date"],
-body.theme-retro select,
-body.theme-retro textarea{
-  border-radius: var(--retro-radius);
-  background: #fff;
-  border: 2px solid var(--retro-border-mid);
-  border-color:
-    var(--retro-border-dark)
-    var(--retro-border-light)
-    var(--retro-border-light)
-    var(--retro-border-dark);
-  box-shadow: none;
-}
-
-body.theme-retro input:focus,
-body.theme-retro select:focus,
-body.theme-retro textarea:focus{
-  outline: var(--retro-outline);
-  outline-offset: 2px;
-  border-color:
-    var(--retro-border-dark)
-    var(--retro-border-light)
-    var(--retro-border-light)
-    var(--retro-border-dark);
-}
-
-/* 숫자 입력은 장부처럼 우측 정렬 유지 */
-body.theme-retro .numeric{ text-align: right; }
-
-/* -----------------------------
-   칩/빠른이동: 각진 토큰
-   ----------------------------- */
-body.theme-retro .chip{
-  border-radius: 999px; /* 칩은 둥글어도 레트로에 어울림 */
-  background: #efefef;
-  border: 2px solid var(--retro-border-mid);
-  border-color:
-    var(--retro-border-light)
-    var(--retro-border-dark)
-    var(--retro-border-dark)
-    var(--retro-border-light);
-  text-decoration: none;
-}
-body.theme-retro .chip:hover{
-  background: #000;
-  color: #fff;
-}
-
-/* -----------------------------
-   테이블: 선 굵게 + 헤더 음영
-   ----------------------------- */
-body.theme-retro .sheetlike th,
-body.theme-retro .sheetlike td{
-  border: 2px solid var(--retro-border-mid);
-  padding: 8px 10px;
-}
-
-body.theme-retro .sheetlike th{
-  background: #dcdcdc;
-}
-
-/* -----------------------------
-   푸터/헤더: 패널화
-   ----------------------------- */
-body.theme-retro .site-header,
-body.theme-retro .site-footer{
-  background: var(--retro-panel);
-  border-top: 2px solid var(--retro-border-mid);
-  border-bottom: 2px solid var(--retro-border-mid);
-  border-color:
-    var(--retro-border-light)
-    var(--retro-border-dark)
-    var(--retro-border-dark)
-    var(--retro-border-light);
-}
-
-/* -----------------------------
-   CRT 오버레이(선택)
-   ----------------------------- */
-@media print{
-  body.theme-retro::before{ display:none !important; }
-}
-
-body.theme-retro.theme-crt{
+/* 배경: 네온 헤이즈 + 딥 그라디언트 */
+body{
   position: relative;
+  background:
+    radial-gradient(1200px 700px at 15% 10%, rgba(255,61,242,0.16), transparent 60%),
+    radial-gradient(1000px 700px at 90% 15%, rgba(77,255,247,0.14), transparent 55%),
+    radial-gradient(900px 650px at 70% 90%, rgba(180,104,255,0.12), transparent 55%),
+    linear-gradient(180deg, var(--cp-bg0), var(--cp-bg1));
+  color: var(--cp-text);
 }
 
-body.theme-retro.theme-crt::before{
+/* 오버레이(그리드/스캔라인) — 내용은 항상 위로 */
+body::before,
+body::after{
   content:"";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 2147483645;
-  opacity: var(--crt-opacity);
-  /* 스캔라인 + 아주 약한 노이즈 */
+  z-index: 0;
+}
+
+body::before{
+  /* 그리드 */
   background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.75) 0px,
-      rgba(0,0,0,0.75) 1px,
-      rgba(255,255,255,0.25) 2px,
-      rgba(255,255,255,0.25) 3px
-    );
-  mix-blend-mode: multiply;
+    linear-gradient(to right, rgba(77,255,247,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,61,242,0.06) 1px, transparent 1px);
+  background-size: 46px 46px;
+  opacity: 0.18;
+  mix-blend-mode: screen;
 }
 
-/* -----------------------------
-   레트로용 추가 유틸(선택)
-   ----------------------------- */
-
-/* “장부 스탬프” 같은 뱃지 */
-body.theme-retro .retro-badge{
-  display: inline-block;
-  padding: 2px 8px;
-  font-weight: 800;
-  border-radius: 999px;
-  background: #000;
-  color: #fff;
+body::after{
+  /* 스캔라인 */
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.05) 1px,
+    transparent 2px,
+    transparent 7px
+  );
+  opacity: 0.12;
 }
 
-/* 에러/주의 텍스트 */
-body.theme-retro .retro-warn{
-  color: #b00020;
-  font-weight: 800;
+/* 바디 직계 자식은 오버레이 위로 */
+body > *{
+  position: relative;
+  z-index: 1;
 }
 
-/* 결과 강조 박스(계산 결과 표시용) */
-body.theme-retro .retro-result{
-  border-radius: var(--retro-radius);
-  padding: 10px 12px;
-  background: #fff;
-  border: 2px solid var(--retro-border-mid);
-  border-color:
-    var(--retro-border-dark)
-    var(--retro-border-light)
-    var(--retro-border-light)
-    var(--retro-border-dark);
+/* 기본 텍스트 컬러 재정의 */
+body p,
+body li,
+body div,
+body span{
+  color: var(--cp-text-soft);
+}
+
+body .muted{ color: var(--cp-muted) !important; }
+
+/* 제목: 네온 그라디언트(지원 브라우저) + 글로우 */
+body h1, body h2, body h3, body h4{
+  color: var(--cp-text);
+  text-shadow: 0 0 18px rgba(255,61,242,0.10), 0 0 18px rgba(77,255,247,0.08);
+}
+
+@supports (-webkit-background-clip: text){
+  body h1{
+    background: linear-gradient(90deg, var(--cp-pink), var(--cp-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+  }
+}
+
+/* 서브타이틀: 터미널 느낌 살짝 */
+.subtitle{
+  font-family: var(--cp-mono);
+  letter-spacing: 0.02em;
+  color: var(--cp-muted) !important;
+}
+
+/* index 배경 흰색 고정 해제 */
+.page-index{ background: transparent !important; }
+
+/* 섹션/카드: 반투명 패널 + 네온 보더 */
+.section{
+  border: 1px solid var(--cp-border) !important;
+  border-radius: var(--cp-radius) !important;
+  background: linear-gradient(180deg, var(--cp-surface2), var(--cp-surface)) !important;
+  box-shadow: 0 12px 34px var(--cp-shadow);
+  backdrop-filter: blur(8px);
+}
+
+.card, .tool-card, .shot-details, .callout{
+  border: 1px solid rgba(77,255,247,0.22) !important;
+  border-radius: var(--cp-radius-sm) !important;
+  background: linear-gradient(180deg, rgba(14,16,26,0.78), rgba(24,27,45,0.78)) !important;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.30);
+  backdrop-filter: blur(6px);
+}
+
+/* hr: 네온 라인 */
+hr{
+  border: 0 !important;
+  height: 1px !important;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255,61,242,0.65),
+    rgba(77,255,247,0.65),
+    transparent
+  ) !important;
+  opacity: 1 !important;
+}
+
+/* 칩 */
+.chip{
+  background: rgba(255,255,255,0.04) !important;
+  border-color: rgba(77,255,247,0.35) !important;
+  color: var(--cp-text) !important;
+  box-shadow: inset 0 0 0 1px rgba(255,61,242,0.08);
+}
+.chip:hover{
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,61,242,0.62) !important;
+  box-shadow: var(--cp-glow-cyan), var(--cp-glow-pink);
+}
+
+/* 버튼: 네온 패널 */
+.btn{
+  border-color: rgba(77,255,247,0.35) !important;
+  color: var(--cp-text) !important;
+  background: linear-gradient(180deg, rgba(10,12,22,0.60), rgba(18,20,34,0.88)) !important;
+  text-shadow: 0 0 10px rgba(77,255,247,0.14);
+  transition: transform 0.06s ease, filter 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.btn:hover{
+  background: linear-gradient(180deg, rgba(18,20,34,0.92), rgba(10,12,22,0.66)) !important;
+  border-color: rgba(255,61,242,0.58) !important;
+  box-shadow: var(--cp-glow-cyan), var(--cp-glow-pink);
+  transform: translateY(-1px);
+}
+
+.btn:active{
+  transform: translateY(0px);
+  filter: brightness(1.06) saturate(1.04);
+}
+
+.btn:focus-visible{
+  outline: 2px solid rgba(77,255,247,0.78) !important;
+  outline-offset: 3px !important;
+  box-shadow: var(--cp-glow-cyan);
+}
+
+/* Primary 버튼: 네온 그라디언트 (사이버펑크 한 방) */
+.btn.primary{
+  background: linear-gradient(90deg, rgba(255,61,242,0.92), rgba(77,255,247,0.86)) !important;
+  border-color: rgba(255,255,255,0.22) !important;
+  color: #061018 !important;
+  text-shadow: none !important;
+  box-shadow:
+    0 12px 34px rgba(255,61,242,0.18),
+    0 12px 34px rgba(77,255,247,0.16);
+}
+.btn.primary:hover{
+  filter: brightness(1.07) saturate(1.06);
+}
+
+/* Ghost 버튼 */
+.btn.ghost{
+  background: rgba(255,255,255,0.04) !important;
+  border-color: rgba(255,255,255,0.18) !important;
+}
+.btn.ghost:hover{
+  background: rgba(255,255,255,0.06) !important;
+}
+
+/* 기존 pastel 버튼들을 “네온 계열”로 재매핑 */
+.btn[class*="pastel-"], .btn.paste-pink{
+  border-color: rgba(255,255,255,0.18) !important;
+  color: #091016 !important;
+  text-shadow: none !important;
+}
+
+.btn.pastel-yellow{
+  background: linear-gradient(90deg, rgba(255,230,109,0.88), rgba(255,159,104,0.78)) !important;
+}
+.btn.pastel-blue{
+  background: linear-gradient(90deg, rgba(96,165,250,0.88), rgba(77,255,247,0.68)) !important;
+}
+.btn.paste-pink{
+  background: linear-gradient(90deg, rgba(255,61,242,0.86), rgba(180,104,255,0.76)) !important;
+}
+.btn.pastel-mint{
+  background: linear-gradient(90deg, rgba(66,245,161,0.82), rgba(77,255,247,0.74)) !important;
+}
+.btn.pastel-green{
+  background: linear-gradient(90deg, rgba(66,245,161,0.84), rgba(167,243,160,0.70)) !important;
+}
+.btn.pastel-orange{
+  background: linear-gradient(90deg, rgba(255,159,104,0.88), rgba(255,230,109,0.68)) !important;
+}
+.btn.pastel-red{
+  background: linear-gradient(90deg, rgba(255,77,109,0.86), rgba(255,159,104,0.70)) !important;
+}
+.btn.pastel-purple{
+  background: linear-gradient(90deg, rgba(180,104,255,0.86), rgba(255,61,242,0.70)) !important;
+}
+.btn.pastel-grey{
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)) !important;
+  color: var(--cp-text) !important;
+  text-shadow: 0 0 10px rgba(77,255,247,0.10);
+  border-color: rgba(77,255,247,0.26) !important;
+}
+.btn.pastel-teal{
+  background: linear-gradient(90deg, rgba(77,255,247,0.86), rgba(56,189,248,0.70)) !important;
+}
+
+/* 입력 UI: 다크 패널 + 네온 포커스 */
+input[type="text"],
+input[type="number"],
+input[type="time"],
+input[type="date"],
+select,
+textarea{
+  background: rgba(0,0,0,0.22) !important;
+  border-color: rgba(77,255,247,0.22) !important;
+  color: var(--cp-text) !important;
+  box-shadow: none !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color: rgba(255,61,242,0.62) !important;
+  box-shadow: var(--cp-glow-pink) !important;
+  background: rgba(0,0,0,0.26) !important;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled{
+  background: rgba(255,255,255,0.04) !important;
+  color: rgba(234,240,255,0.45) !important;
+}
+
+/* 테이블: 다크 시트 */
+.sheetlike{
+  background: rgba(10,12,22,0.55) !important;
+  color: var(--cp-text) !important;
+}
+.sheetlike th, .sheetlike td{
+  border-color: rgba(77,255,247,0.22) !important;
+}
+.sheetlike th{
+  background: rgba(77,255,247,0.08) !important;
+  color: var(--cp-text) !important;
+}
+
+/* 대시보드 summary */
+.dash-summary{
+  border-color: rgba(77,255,247,0.22) !important;
+  background: rgba(255,255,255,0.04) !important;
+}
+.dash-title{
+  font-family: var(--cp-mono);
+  letter-spacing: 0.02em;
+}
+
+/* 스킵 링크도 네온 */
+.skip-link{
+  background: linear-gradient(90deg, rgba(255,61,242,0.92), rgba(77,255,247,0.86)) !important;
+  color: #061018 !important;
+}
+
+/* 이미지 모달(있는 페이지용): 라이트 배경 제거 */
+.img-modal-content{
+  background: rgba(10,12,22,0.90) !important;
+  border: 1px solid rgba(77,255,247,0.22) !important;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55) !important;
+}
+
+/* 푸터 */
+.site-footer{
+  background: rgba(14,16,26,0.62) !important;
+  border-top-color: rgba(77,255,247,0.22) !important;
+  color: var(--cp-muted) !important;
+}
+
+/* 선택 색(나중에 copy 방지 완화 시에도 예쁨) */
+::selection{
+  background: rgba(255,61,242,0.40);
+  color: #061018;
+}
+
+/* 모션 민감 사용자 배려 */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  body::before, body::after{ opacity: 0.08; }
+}
+
+/* 인쇄는 깔끔하게(배경/오버레이 제거) */
+@media print{
+  body{ background: #fff !important; color: #000 !important; }
+  body::before, body::after{ display: none !important; }
+  .section, .card, .callout, .tool-card, .shot-details{
+    background: #fff !important;
+    border-color: #ddd !important;
+    box-shadow: none !important;
+  }
+  .btn{
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
 }

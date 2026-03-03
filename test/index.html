@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>고주무관의 교육행정 업무 효율화 지원 웹페이지</title>
+
+  <link rel="icon" href="/static/favicon.ico" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body class="page-index">
+<a class="skip-link" href="#main">본문 바로가기</a>
+
+<main class="container" id="main">
+  <header class="page-head">
+    <h1>고주무관의 <br/>교육행정 업무 효율화 지원 웹페이지</h1>
+    <p class="subtitle">제작·운영 — 업무천재 고주무관</p>
+
+    <div class="callout">
+      <ul class="muted list-tight">
+        <li>학교 행정 업무 수행 과정에서 반복되는 산출·정리 업무를 구조화하여, 업무 효율성과 정확성을 높이기 위해 설계·제작한 업무 지원 웹페이지입니다.</li>
+        <li>강원특별자치도 기준이며, 지역 무관하게 항상 사용자 본인이 직접 관련 지침 등을 확인하고 업무 처리하여 주십시오.</li>
+        <li>도교육청 산하 전산망 환경에서는 일부 기능 이용하는데 제한이 있을 수 있습니다.</li>
+        <li>서버 및 데이터베이스를 사용하지 않으며, 업로드한 파일은 저장되지 않습니다. (서버, DB 없으면 기술적으로 불가능)</li>
+      </ul>
+    </div>
+  </header>
+
+  <hr/>
+
+  <!-- ========================= 빠른 이동 ========================= -->
+  <nav class="section quick-nav" aria-label="빠른 이동">
+    <h2 class="local-h2">빠른 이동</h2>
+    <div class="chip-row">
+      <a class="chip" href="#dashboard">공지사항</a>
+      <a class="chip" href="#dlSection">exe 다운로드</a>
+      <a class="chip" href="#tools">유용한 기능</a>
+      <a class="chip" href="#income">세입</a>
+      <a class="chip" href="#labor">노무제공자</a>
+      <a class="chip" href="#insurance">사회보험</a>
+      <a class="chip" href="#leave">복무·연차</a>
+      <a class="chip" href="#payroll">공무직 인건비</a>
+      <a class="chip" href="#special-payroll">특수운영직군</a>
+      <a class="chip" href="#sports">운동부·스포츠</a>
+      <a class="chip" href="#other-workers">기타 근로</a>
+      <a class="chip" href="#feedback">의견</a>
+      <a class="chip" href="#links">연계 사이트</a>
+    </div>
+  </nav>
+
+  <!-- ========================= 대시보드 ========================= -->
+  <section class="section" id="dashboard">
+    <!-- 대시보드 (기본: 열림) -->
+    <details class="dash-details" open>
+      <summary class="dash-summary">
+        <span class="dash-title">공지사항 대시보드</span>
+        <span class="muted">— 펼치기/접기</span>
+      </summary>
+
+      <div class="callout">
+        <ul class="muted list-tight">
+          <li>최근 수정일자: 2026.3.3.(화) 오후 5:27</li>
+          <li>주요 산정식 변경이나 기능 신설처럼 알릴만한 것만 기재합니다. 세부 UI 및 내부 로직은 수시 수정됩니다.</li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <div class="grid two">
+        <div class="card">
+          <h3>업데이트 내역</h3>
+          <ul class="list-tight">
+            <li><b>사회보험료 계산기</b> 신설</li>
+            <li><b>이미지 파일 pdf 삽입기</b> 신설</li>
+            <li><b>연차 부여일수 미니계산기</b> 신설</li>
+            <li><b>연차 미사용수당 미니계산기</b> 신설</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>계산식 등 수정 예정 내역</h3>
+          <ul class="list-tight">
+            <li>기능 직관성 높이게 UI, UX 수정 예정</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="card">
+        <h3>지원 범위 상세 안내</h3>
+        <p>·본 사이트의 계산 로직 및 각종 용어 등은 강원특별자치도 기준을 바탕으로 설계·적용하였습니다. 타 시도 단체협약, 소급적용 시점, 통상임금 정의 방식 등에 따라 결과는 달라질 수 있습니다. (공무직·보수·연차 관련 등)</p>
+        <p>·지역별 세부 규정 분석 및 맞춤 수정은 지원하기 어렵습니다.</p>
+      </div>
+
+      <hr/>
+
+      <h3 class="local-h3">고주무관에게 사용자 의견 보내기</h3>
+      <div class="card">
+        <a class="btn pastel-yellow" href="https://naver.me/Gxr2V6gb">사용자 의견 보내러 가기</a>
+        <div class="btn-desc">
+          ·사이트 이용하면서 좋았던 점, 발견한 오류 내역, 건의 사항 등 자유롭게 이용하여 주십시오.
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ========================= 다운로드 섹션 ========================= -->
+  <section class="section dl-section" id="dlSection">
+    <h2 class="local-h2">업무 시간 단축용 exe 프로그램</h2>
+
+    <button
+      type="button"
+      class="btn btn-lightgrey"
+      id="dlToggleBtn"
+      aria-expanded="false"
+      aria-controls="dlSectionBody"
+    >
+      다운로드 목록 펼치기 ▸
+    </button>
+
+    <div id="dlSectionBody" hidden>
+      <hr/>
+
+      <div class="tool-grid">
+        <!-- 사회보험료 -->
+        <article class="tool-card">
+          <header class="tool-head">
+            <h3 class="tool-title">[사회보험료] 방과후강사 월보수액 계산기</h3>
+          </header>
+
+          <a class="btn primary tool-btn" id="downloadAfterschoolpay" href="#" download>
+            [사회보험료] 방과후강사 월보수액 계산기 다운로드
+          </a>
+
+          <div class="tool-body">
+            <div class="muted">
+              ·웹페이지 기능과 동일한 구성의 프로그램입니다. 입력한 내용대로 엑셀파일 생성함.<br/>
+              ·PC에 저장해놓고 쓰는 게 더 편하면 다운로드 받아서 사용하십시오.<br/>
+            </div>
+
+            <details class="shot-details">
+              <summary class="shot-summary">프로그램 실행 화면 보기</summary>
+              <figure class="tool-shot">
+                <img src="/static/program_afterschool_teacher_01.png" alt="프로그램 실행 화면" class="tool-thumb" loading="lazy" /><br/>
+                <img src="/static/program_afterschool_teacher_02.png" alt="생성된 엑셀파일 예시 화면" class="tool-thumb" loading="lazy" /><br/>
+              </figure>
+            </details>
+          </div>
+        </article>
+
+        <!-- 기타소득 -->
+        <article class="tool-card">
+          <header class="tool-head">
+            <h3 class="tool-title">[연말정산] 기타소득 등록업무 경감 프로그램</h3>
+          </header>
+
+          <a class="btn primary tool-btn" id="downloadExpense" href="#" download>
+            [연말정산] 기타소득 등록업무 경감 프로그램
+          </a>
+
+          <div class="tool-body">
+            <div class="muted">
+              ·검증 완료. 배포 가능.<br/>
+              ·지출결의서 PDF 1년치를 업로드하면 “기타” 및 “보수(일용)” 유형만 선별하여 엑셀 파일로 변환<br/>
+            </div>
+
+            <details class="shot-details">
+              <summary class="shot-summary">프로그램 실행 화면 보기</summary>
+              <figure class="tool-shot">
+                <img src="/static/program_pdf_to_excel_01.jpg" alt="기타소득 PDF 엑셀 변환 실행 화면" class="tool-thumb" loading="lazy" />
+              </figure>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("dlToggleBtn");
+        const body = document.getElementById("dlSectionBody");
+        if (!btn || !body) return;
+
+        const setOpen = (open) => {
+          body.hidden = !open;
+          btn.setAttribute("aria-expanded", String(open));
+          btn.textContent = open ? "다운로드 목록 접기 ▾" : "다운로드 목록 펼치기 ▸";
+        };
+
+        setOpen(false);
+
+        btn.addEventListener("click", () => {
+          const isOpen = btn.getAttribute("aria-expanded") === "true";
+          setOpen(!isOpen);
+        });
+      });
+    </script>
+  </section>
+
+  <!-- ========================= 본문 계산기 섹션 ========================= -->
+
+  <!-- 각종 유용한 기능 -->
+  <section class="section" id="tools">
+    <h2 class="local-h2">각종 유용한 기능</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn pastel-blue" href="/analysis-human-resource/">인사발령자 학교·기관별/지역별/직군별 명단 집계기 (사용 가능)</a>
+        <div class="btn-desc">
+          ·에듀파인 업무지원-일반게시판에서 인사발령 엑셀 첨부파일 다운받아서 업로드하면 학교·기관별/지역별/직렬·직군·과목별로 전체 전입자 및 전출자 명단 조회 가능<br/>
+          ·학교·기관 근무지별 집계 내역은 보수 기본자료 작성 및 맞춤형 복지 전입전출 처리 등에 활용 가능<br/>
+        </div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/excel-sheet/">엑셀 시트 웹 버전</a>
+        <div class="btn-desc">·엑셀 파일 열기 귀찮을때 간단한 계산을 빠르게</div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/stamp-true-copy/">원본대조필 도장 pdf 일괄 날인기</a>
+        <div class="btn-desc">
+          ·교육경비 정산서류 및 기간제 서류 송부 등 찍을 거 많을 때 pdf에 자동으로 도장 찍어드림.<br/>
+          ·도장 크기 변경 불가
+        </div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/stamp-insert-png-into-pdf/">이미지 파일 pdf 삽입기</a>
+        <div class="btn-desc">
+          ·배경 제거(투명화)한 PNG파일을 PDF에 일괄 삽입해드림. (직인 날인 시 등에 유용)<br/>
+          ·크기 조절 가능
+        </div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/pdf-delete-pages/">pdf 특정 페이지 삭제기</a>
+        <div class="btn-desc">·중간중간 페이지 삭제해야할 때 빠르게 처리</div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/convertor-images-to-pdf/">이미지 파일들 PDF파일로 병합기</a>
+        <div class="btn-desc">·JPG, PNG 등 이미지 파일들 올리면 PDF파일로 병합해줌</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 세입 업무 관련 -->
+  <section class="section" id="income">
+    <h2 class="local-h2">세입 업무 관련 기능</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn" href="/income-ledger/">수입·지출일계 금액 계산기 (사용 가능)</a>
+        <div class="btn-desc">
+          ·농협 인터넷 뱅킹에서 빠른조회서비스-거래내역조회-엑셀 파일 다운로드한 거 올리면 일자별 수입 및 지출 일계 금액 구해줌.<br/>
+          ·기간 길게 해도 상관없음. 미수납된 금액 찾아야하거나 현금출납부 등 검산할 때 활용 굿
+        </div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/bad-parents/">세입 미납 업무 문자 독촉 업무 경감기 (사용 가능)</a>
+        <div class="btn-desc">
+          ·미수납자 전체 업로드하면 학생별로 문자 발송 문구 및 미수납 안내장을 일괄 생성해드립니다. 미수납자 많을 때 활용하십시오.<br/>
+          ·업로드할 파일: 에듀파인 학교회계에서 수입관리-출납관리-미수납관리-미수납대상 "엑셀파일" 다운로드
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 노무제공자 -->
+  <section class="section" id="labor">
+    <h2 class="local-h2">노무제공자 (방과후강사 등)</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn" href="/monthly-pay-afterschool-teacher/">방과후강사 월보수액 계산기 (사용 가능)</a>
+        <div class="btn-desc">·강사료 입력하면 월보수액이랑 산재보험료 자동계산됨. (검증 완료)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 사회보험 관련 -->
+  <section class="section" id="insurance">
+    <h2 class="local-h2">사회보험 관련</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn" href="/social-insurance-calculator/">사회보험료 계산기</a>
+        <div class="btn-desc">·산재보험료는 학교마다 다르니 확인후 개별 입력하세요. 기본값은 개발자 학교 0.966%</div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/social-insurance-cover/">사회보험료 고지내역 엑셀 집계기 (미완성)</a>
+        <div class="btn-desc">·각 보험료 고지내역 csv 다운받아서 업로드하면 엑셀파일에 집계해줌. 아직 고용산재만 가능</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 교육공무직 복무 관련 -->
+  <section class="section" id="leave">
+    <h2 class="local-h2">교육공무직 복무 관련</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn pastel-yellow" href="/annualleave-unused-mini/">교육공무직 연차 미사용수당 미니 계산기 (사용 가능)</a>
+        <div class="btn-desc">·빠른 계산을 위해 만듦. 10진수 연차일수 단위를 일/시간/분단위로 빠르게 환산. 통상임금 수기입력 필요</div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/annualleave-unused-2025/">2025학년도 교육공무직 연차 미사용수당 계산기 (테스트)</a>
+        <div class="btn-desc">
+          ·2025학년도에 미사용한 연차에 대해 2026.2.28.일자 기준 통상임금으로 미사용수당 산정함.<br/>
+          ·나이스 복무상황 올리면 자동으로 연차 사용내역만 선별함
+        </div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn pastel-yellow" href="/annualleave-give-2026-mini/">교육공무직 연차 유급휴가일수 미니 계산기 (사용가능)</a>
+        <div class="btn-desc">·초간단 미니계산기. 빠른 검산용</div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/annualleave-give-2026/">2026학년도 교육공무직 연차 유급휴가일수 계산기 (테스트)</a>
+        <div class="btn-desc">
+          ·2025학년도 근무에 대해 2026학년도에 사용가능한 연차 일수를 부여함.<br/>
+          ·나이스 인사기록 및 근무상황 조회 엑셀 원자료 업로드하면 자동으로 출근율, 연차 부여일수 계산해줌.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 교육공무직 인건비 관련 -->
+  <section class="section" id="payroll">
+    <h2 class="local-h2">교육공무직 인건비 관련</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn" href="/ordinary-wage/">교육공무직 통상임금 계산기 (사용 가능)</a>
+        <div class="btn-desc">
+          ·학교근로자 직종별 보수표 반영<br/>
+          ·관련: 도교육청 예산과-2109(2025.2.13.)
+        </div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/vacation-pay-cook/">조리종사원 겨울방학중 급식소 청소 인건비 계산기 (사용 가능)</a>
+        <div class="btn-desc">·주휴수당 반영 및 수기 일정 추가 가능</div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/cook-industrial-safety-education-pay/">조리종사원 산업안전보건교육비 계산기 (테스트중)</a>
+        <div class="btn-desc">·집체·온라인 교육비 산출</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 특수운영직군 인건비 관련 -->
+  <section class="section" id="special-payroll">
+    <h2 class="local-h2">특수운영직군 인건비 관련</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn" href="/vacation-pay-cleaner/">청소원 방학중 근무 인건비 계산기 (사용 가능)</a>
+        <div class="btn-desc">·주휴수당 반영 및 수기 일정 추가 가능</div>
+      </div>
+
+      <div class="link-item">
+        <a class="btn" href="/salary-gatekeeper/">출입문개폐전담원 인건비 계산기 (사용 가능)</a>
+        <div class="btn-desc">·출근내역 및 인건비 산출내역을 엑셀 파일로 저장 가능</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 주석 처리
+  <section class="section">
+    <h2 class="local-h2">계약제교원 인건비 예산 및 지급</h2>
+    <hr/>
+    <div>
+      <a class="btn" href="/preschool-parttime-contract-teacher/">
+        유치원 시간제근무 기간제교원 연간 인건비 계산기 (미완료)
+      </a>
+      <div class="btn-desc">·근무 유형별 산출 구조 반영</div>
+    </div>
+  </section>
+  -->
+
+  <!-- 학교운동부지도자·스포츠강사 -->
+  <section class="section" id="sports">
+    <h2 class="local-h2">학교운동부지도자·스포츠강사</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn" href="/user-fee-ratio/">운동부지도자 수익자부담금 비율 계산기 (사용 가능)</a>
+        <div class="btn-desc">·실수령액과 공제 금액 모두 수익자부담금을 재원으로 하는 경우 예산 분배 계산함. (개발자 학교 기준)</div>
+      </div>
+
+      <!-- 주석 처리
+      <div class="link-item">
+        <a class="btn" href="/sports-contract-teacher-budget-calculator/">스포츠강사 연간 인건비 계산기 (테스트중)</a>
+        <div class="btn-desc">·2025회계 기준</div>
+      </div>
+      -->
+    </div>
+  </section>
+
+  <!-- 그 외 근로계약자 -->
+  <section class="section" id="other-workers">
+    <h2 class="local-h2">그 외 근로계약자</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn" href="/parttime-wage-calculator/">시급·일급제 근로계약자 인건비 계산기</a>
+        <div class="btn-desc">·초단시간·단시간 자동 구분</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 사용자 의견 보내기 -->
+  <section class="section" id="feedback">
+    <h2 class="local-h2">고주무관에게 사용자 의견 보내기</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn pastel-yellow" href="https://naver.me/Gxr2V6gb">사용자 의견 보내러 가기</a>
+        <div class="btn-desc">
+          ·사이트 이용하면서 좋았던 점, 발견한 오류 내역, 건의 사항, 그냥 인사 해보고 싶다 등 자유롭게 이용하여 주십시오.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= 도원결의 사이트 ========================= -->
+  <section class="section" id="links">
+    <h2 class="local-h2">연계 업무지원 개인제작 웹사이트</h2>
+    <hr/>
+
+    <div class="link-list">
+      <div class="link-item">
+        <a class="btn"
+           href="https://gyohaeng.pages.dev"
+           target="_blank"
+           rel="noopener"
+           referrerpolicy="origin">
+          교행노트 바로가기
+        </a>
+
+        <div class="btn-desc muted">
+          ·기관에서 근무중인 주무관님께서 만드셨습니다. 감사, 통계자료, 법제처 자료 등과 다양한 문서편집 툴 기능이 있습니다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const EXPENSE_URL =
+    "https://drive.google.com/file/d/1MWqffcPAzERlKSW_Qp-dph9G808UmO5O/view?usp=drive_link";
+
+  const AFTERSCHOOL_PAY_URL =
+    "https://drive.google.com/file/d/16Nc2oCjoHVBOExbE1mRIWFdJk_x7--re/view?usp=drive_link";
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const afterschoolPay = document.getElementById("downloadAfterschoolpay");
+    const expense = document.getElementById("downloadExpense");
+
+    if (expense) expense.href = EXPENSE_URL;
+    if (afterschoolPay) afterschoolPay.href = AFTERSCHOOL_PAY_URL;
+  });
+</script>
+
+<script src="/static/disable-copy.js"></script>
+<script src="/static/footer.js"></script>
+<script src="/static/global-loader.js?v=1"></script>
+
+</body>
+</html>
